@@ -64,9 +64,15 @@ export default function Search() {
 
   const handleUpload = () => {
     const copyData = data;
-    copyData.push({ Url: url, Name: name });
-    handleClose();
-    setData(copyData);
+    if (url === "" || name === "") {
+      alert("Please fill the details");
+    } else {
+      copyData.push({ Url: url, Name: name });
+      handleClose();
+      setData(copyData);
+      setUrl("");
+      setName("");
+    }
   };
 
   const handleSearch = () => {
